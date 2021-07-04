@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block nav-home %}<a class="nav-link active">Home</a>{% endblock %}
+{% block content %}
+
+
+<form action="/analyse" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter your texts</label>
+        <textarea class="form-control" name="texts" id="exampleFormControlTextarea1" rows="9"></textarea>
+      </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="removepunc" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Remove Punctuation</label>
+    </div>
+    
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="fullcaps" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Upper Case</label>
+    </div>
+    
+    <div class="form-check form-switch">
+        <input class="form-check-input" name="newlineremover" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">New line Remove</label>
+    </div>
+
+    <button class="btn btn-dark my-3" type="submit">Analyse Text</button>
+    
+</form>
+{% endblock content %}
